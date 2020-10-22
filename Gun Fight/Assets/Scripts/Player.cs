@@ -24,12 +24,19 @@ public class Player : MonoBehaviour
                 mousepos = Input.mousePosition;
                 mousepos = Camera.main.ScreenToWorldPoint(mousepos);
 
-
-
-                this.gameObject.transform.localPosition = new Vector3(objectPosX, mousepos.y, 0);
+            this.gameObject.transform.localPosition = new Vector3(objectPosX, mousepos.y, 0);
             
             
-        }    
+        }
+
+        if (gameObject.transform.position.y >= maxposY)
+        {
+            gameObject.transform.position = new Vector2(objectPosX, maxposY - 0.1f);
+        }
+        else if (gameObject.transform.position.y <= minposY)
+        {
+            gameObject.transform.position = new Vector2(objectPosX, minposY + 0.1f);
+        }
     }
 
     private void OnMouseDown()
