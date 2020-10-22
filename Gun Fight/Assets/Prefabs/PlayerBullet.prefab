@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 6932520010868397783}
   - component: {fileID: 6932520010868397780}
   m_Layer: 0
-  m_Name: mermi
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,8 +259,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1780218547
-  m_SortingLayer: 0
+  m_SortingLayerID: 891865263
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1989742138249271369, guid: cfadb32c4394afd4eb52fd033adde4fa,
     type: 3}
