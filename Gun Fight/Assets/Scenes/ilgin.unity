@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 1666852071}
   - component: {fileID: 1666852070}
   - component: {fileID: 1666852073}
+  - component: {fileID: 1666852074}
   m_Layer: 0
   m_Name: glock
   m_TagString: Untagged
@@ -868,6 +869,25 @@ MonoBehaviour:
   cooldownMax: 0.65
   bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
   spawnPoint: {fileID: 1559161787}
+--- !u!95 &1666852074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666852068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea8dd83c4c1b43440956ef0c06fe9573, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1941999012
 GameObject:
   m_ObjectHideFlags: 0
