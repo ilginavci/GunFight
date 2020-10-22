@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6932520010096124731}
   - component: {fileID: 6932520010096124730}
   - component: {fileID: 6932520010096124729}
+  - component: {fileID: 1396683545436359952}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -68,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 250
+  colliderTag: Player
 --- !u!96 &6932520010096124729
 TrailRenderer:
   serializedVersion: 2
@@ -174,6 +176,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!70 &1396683545436359952
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6932520010096124733}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0, y: 0}
+  m_Size: {x: 1.87, y: 0.6}
+  m_Direction: 1
 --- !u!1 &6932520010868397782
 GameObject:
   m_ObjectHideFlags: 0

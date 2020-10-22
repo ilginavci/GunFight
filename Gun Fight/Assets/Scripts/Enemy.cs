@@ -12,16 +12,20 @@ public class Enemy : MonoBehaviour
     public GameObject enemyBullet;
     public float cooldown, cooldownMax;
     public Transform spawnPoint;
+    private Animator animator;
+    public float health;
 
     void Start()
     { //Random Movement
+        animator = GetComponent<Animator>();
         InvokeRepeating("RandomMovement", 0, 5);
+
     }
     void FixedUpdate()
     {   //Enemy Movement
         if (directionUp)
         { 
-            transform.Translate(Vector2.up * enemySpeed * Time.fixedDeltaTime);
+            transform.Translate(Vector2.up * enemySpeed * Time.fixedDeltaTime, Space.World);
             if(transform.position.y > maxposY)
             {
                 directionUp = !directionUp;
@@ -29,7 +33,7 @@ public class Enemy : MonoBehaviour
         }
     else
         {
-            transform.Translate(Vector2.down * enemySpeed * Time.fixedDeltaTime);
+            transform.Translate(Vector2.down * enemySpeed * Time.fixedDeltaTime, Space.World);
             if (transform.position.y < minposY)
             {
                 directionUp = !directionUp;
@@ -40,7 +44,7 @@ public class Enemy : MonoBehaviour
         {
            cooldown = cooldownMax;
           Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
-
+            animator.SetTrigger("Shoot");
         }
         else
         {
@@ -61,6 +65,13 @@ public class Enemy : MonoBehaviour
             random = true;
         }
     }
-
+    public void GetDamage()
+    {
+        health -= 20;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }

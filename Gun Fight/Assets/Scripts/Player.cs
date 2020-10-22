@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPoint;
     private Animator animator;
+    public float health;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+      
         if(beingHeld == true)
         {
             
@@ -37,7 +39,7 @@ public class Player : MonoBehaviour
                 cooldown = cooldownMax;
                 Instantiate(bullet,spawnPoint.transform.position,Quaternion.identity);
                 animator.SetTrigger("Shoot");
-                
+
             }
             else
             {
@@ -66,6 +68,13 @@ public class Player : MonoBehaviour
     {
         beingHeld = false;
     }
-
+    public void GetDamage()
+    {
+        health -= 20;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
