@@ -11,9 +11,13 @@ public class Player : MonoBehaviour
     public float cooldown,cooldownMax;
     public GameObject bullet;
     public Transform spawnPoint;
+    private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
 
-
+    }
 
     void Update()
     {
@@ -32,7 +36,8 @@ public class Player : MonoBehaviour
             {
                 cooldown = cooldownMax;
                 Instantiate(bullet,spawnPoint.transform.position,Quaternion.identity);
-
+                animator.SetTrigger("Shoot");
+                
             }
             else
             {
