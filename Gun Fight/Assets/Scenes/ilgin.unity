@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 494462277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7163248, y: 0.7163248, z: 0.7163248}
+  m_LocalScale: {x: 0.62924, y: 0.62924, z: 0.62924}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -644,7 +644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666852068}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.77, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 1559161787}
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPosX: 0
   maxposY: 2.8
-  minposY: -4.2
+  minposY: -2.8
   cooldown: 0
   cooldownMax: 0.4
   bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   enemySpeed: 1
   directionUp: 0
   maxposY: 2.7
-  minposY: -4.2
+  minposY: -2.7
   random: 0
   enemyBullet: {fileID: 6932520010096124733, guid: 6556e164053b54549ba1b18b1ed75af1,
     type: 3}
