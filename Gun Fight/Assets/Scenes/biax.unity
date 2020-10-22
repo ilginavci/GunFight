@@ -392,11 +392,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559161786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 0.388, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 2.59, y: 1.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1600589752}
-  m_RootOrder: 1
+  m_Father: {fileID: 1666852069}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600589751
 GameObject:
@@ -426,7 +426,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1666852069}
-  - {fileID: 1559161787}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -460,7 +459,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.99, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_Children: []
+  m_Children:
+  - {fileID: 1559161787}
   m_Father: {fileID: 1600589752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -773,3 +773,7 @@ MonoBehaviour:
   objectPosX: -1.99
   maxposY: 4.2
   minposY: -4.2
+  cooldown: 0
+  cooldownMax: 1
+  bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
+  spawnPoint: {fileID: 1559161787}
