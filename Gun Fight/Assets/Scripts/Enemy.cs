@@ -14,10 +14,12 @@ public class Enemy : MonoBehaviour
     public Transform spawnPoint;
     private Animator animator;
     public float health;
+    public float animMultiplier;
 
     void Start()
     { //Random Movement
         animator = GetComponent<Animator>();
+        animator.SetFloat("Multiplier", animMultiplier);
         InvokeRepeating("RandomMovement", 0, 5);
 
     }

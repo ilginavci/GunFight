@@ -961,10 +961,11 @@ MonoBehaviour:
   maxposY: 2.8
   minposY: -4.2
   cooldown: 0
-  cooldownMax: 0.65
+  cooldownMax: 0.4
   bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
   spawnPoint: {fileID: 1559161787}
   health: 100
+  animMultiplier: 1
 --- !u!95 &1666852074
 Animator:
   serializedVersion: 3
@@ -1284,9 +1285,10 @@ MonoBehaviour:
   enemyBullet: {fileID: 6932520010096124733, guid: 6556e164053b54549ba1b18b1ed75af1,
     type: 3}
   cooldown: 0
-  cooldownMax: 0.65
+  cooldownMax: 0.4
   spawnPoint: {fileID: 3004946127053996127}
   health: 100
+  animMultiplier: 1
 --- !u!212 &3004946126773784332
 SpriteRenderer:
   m_ObjectHideFlags: 0

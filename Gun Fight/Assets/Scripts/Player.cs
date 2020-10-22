@@ -13,11 +13,12 @@ public class Player : MonoBehaviour
     public Transform spawnPoint;
     private Animator animator;
     public float health;
+    public float animMultiplier;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-
+        animator.SetFloat("Multiplier",animMultiplier);
     }
 
     void Update()
