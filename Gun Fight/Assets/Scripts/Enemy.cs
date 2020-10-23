@@ -15,10 +15,12 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     public float health;
     public float animMultiplier;
+    private AudioSource audioSource;
 
     void Start()
     { //Random Movement
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         animator.SetFloat("Multiplier", animMultiplier);
         InvokeRepeating("RandomMovement", 0, 5);
 
@@ -72,6 +74,7 @@ public class Enemy : MonoBehaviour
         {
             cooldown = cooldownMax;
             Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
+            audioSource.Play();
             animator.SetTrigger("Shoot");
         }
         else

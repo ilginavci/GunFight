@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     private Animator animator;
     public float health;
     public float animMultiplier;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetFloat("Multiplier",animMultiplier);
     }
@@ -39,8 +41,8 @@ public class Player : MonoBehaviour
             {
                 cooldown = cooldownMax;
                 Instantiate(bullet,spawnPoint.transform.position,Quaternion.identity);
-                animator.SetTrigger("Shoot");
-
+                animator.SetTrigger("Shoot"); //SHOOTING ANIM
+                audioSource.Play(); //SHOOTING SOUND
             }
             else
             {
