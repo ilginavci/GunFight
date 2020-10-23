@@ -10,4 +10,5 @@ public class PlayerSensor : MonoBehaviour
             GetComponentInParent<Enemy>().EnemyFire();
         }
      }
+    
 }
