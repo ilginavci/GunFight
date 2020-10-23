@@ -7,9 +7,19 @@ public class BulletManager : MonoBehaviour
     private Rigidbody2D bulletRB;
     public float power;
     public string colliderTag;
+    private Sprite defaultSprite;
+    public Sprite muzzleSprite;
+    private SpriteRenderer spriteRend;
+    public int flashframetime;
+
     void Start()
     {
+        spriteRend = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        defaultSprite = spriteRend.sprite;
+
+        StartCoroutine(FlashMuzzle());
         
+
         bulletRB = this.GetComponent<Rigidbody2D>();
           // Player bullet goes right, Enemy bullet goes left
         if (gameObject.CompareTag("PlayerBullet"))
@@ -51,5 +61,17 @@ public class BulletManager : MonoBehaviour
         }
     }
    
-    
+
+   IEnumerator FlashMuzzle()
+    {
+        spriteRend.sprite = muzzleSprite;
+        for (int i =0; i < flashframetime; i++)
+        {
+            
+            yield return 0;
+        }
+        spriteRend.sprite = defaultSprite;
+    }
+
+
 }

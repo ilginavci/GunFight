@@ -70,6 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 250
   colliderTag: Player
+  muzzleSprite: {fileID: 21300000, guid: 5b650e619f18cf249a169b068985faf9, type: 3}
+  flashframetime: 3
 --- !u!96 &6932520010096124729
 TrailRenderer:
   serializedVersion: 2
@@ -259,12 +261,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 891865263
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1989742138249271369, guid: cfadb32c4394afd4eb52fd033adde4fa,
-    type: 3}
-  m_Color: {r: 0.8773585, g: 0.25244746, b: 0.25244746, a: 1}
+  m_SortingLayerID: -926457397
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: db52758af16c3d144aee245e4a62eaec, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
