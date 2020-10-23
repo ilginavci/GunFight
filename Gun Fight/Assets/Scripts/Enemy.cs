@@ -41,17 +41,8 @@ public class Enemy : MonoBehaviour
                 directionUp = !directionUp;
             }
         } 
-        // Bullet Fire and timing
-        if (cooldown <= 0)
-        {
-           cooldown = cooldownMax;
-          Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
-            animator.SetTrigger("Shoot");
-        }
-        else
-        {
-          cooldown -= Time.deltaTime;
-        }
+       
+       
     }
     void RandomMovement()
     {
@@ -73,6 +64,19 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+    public void EnemyFire()  // Bullet Fire and timing
+    {
+        if (cooldown <= 0)
+        {
+            cooldown = cooldownMax;
+            Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
+            animator.SetTrigger("Shoot");
+        }
+        else
+        {
+            cooldown -= Time.deltaTime;
         }
     }
 
