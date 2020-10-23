@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     public float enemySpeed;
     public bool directionUp;
     public float maxposY, minposY;
-    public bool random;
     public GameObject enemyBullet;
     public float cooldown, cooldownMax;
     public Transform spawnPoint;
@@ -19,10 +18,12 @@ public class Enemy : MonoBehaviour
 
     void Start()
     { //Random Movement
+        InvokeRepeating("RandomMovement", 0, 5);
+        //Animation
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         animator.SetFloat("Multiplier", animMultiplier);
-        InvokeRepeating("RandomMovement", 0, 5);
+        
 
     }
     void FixedUpdate()
@@ -46,18 +47,18 @@ public class Enemy : MonoBehaviour
        
        
     }
-    void RandomMovement()
+    public void RandomMovement()
     {
+        print("Random");
         var randomNumber = (Random.value > 0.5f); // it gives a bool , 1 or 0
         if (randomNumber)
         {
-            directionUp = false; 
-            random = true;
+            directionUp = true; 
+          
         }
         else
         {
-            directionUp = true;
-            random = true;
+            directionUp = false;
         }
     }
     public void GetDamage()
@@ -66,7 +67,11 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            //Changing Screen
+            GameObject.Find("ScreenLine").GetComponent<Animator>().SetTrigger("ScreenAnim"); //ScreenLineAnimation
+            GameObject.Find("Main Camera").GetComponent<ScreenManager>().ChangeScreen();// Camera background color
         }
+
     }
     public void EnemyFire()  // Bullet Fire and timing
     {
@@ -74,7 +79,6 @@ public class Enemy : MonoBehaviour
         {
             cooldown = cooldownMax;
             Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
-            audioSource.Play();
             animator.SetTrigger("Shoot");
         }
         else

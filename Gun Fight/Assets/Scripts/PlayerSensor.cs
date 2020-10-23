@@ -6,9 +6,16 @@ public class PlayerSensor : MonoBehaviour
 {
     void OnTriggerStay2D(Collider2D other)
     {   if (other.gameObject.CompareTag("Player"))
-        {
+        {     //EnemyShotTrigger
             GetComponentInParent<Enemy>().EnemyFire();
         }
-     }
-    
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {     //EnemyShotTrigger
+            GetComponentInParent<Enemy>().RandomMovement();
+        }
+    }
+
 }
