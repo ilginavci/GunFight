@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    private float startPosX, startPosY;
-    public float objectPosX,maxposY,minposY;
-    private bool beingHeld = false;
-    public float cooldown,cooldownMax;
+    
+    public float objectPosX, maxposY, minposY;   
+    private float startPosX, startPosY;   
+    private bool beingHeld = false;   
+    public float cooldown,cooldownMax;    
     public GameObject bullet;
     public Transform spawnPoint;
     private Animator animator;
-    public float health;
+    [SerializeField]
+    private float health;
     public float animMultiplier;
     private AudioSource audioSource;
 

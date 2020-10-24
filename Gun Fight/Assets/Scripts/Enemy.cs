@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
     public float cooldown, cooldownMax;
     public Transform spawnPoint;
     private Animator animator;
-    public float health;
+    [SerializeField]
+    private float health;
     public float animMultiplier;
     private AudioSource audioSource;
 
