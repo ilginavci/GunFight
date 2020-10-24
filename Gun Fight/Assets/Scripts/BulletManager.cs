@@ -11,6 +11,7 @@ public class BulletManager : MonoBehaviour
     public Sprite muzzleSprite;
     private SpriteRenderer spriteRend;
     public int flashframetime;
+    public int playerDamage, enemyDamage;
 
     void Start()
     {
@@ -51,11 +52,11 @@ public class BulletManager : MonoBehaviour
             Destroy(gameObject);
             if (colliderTag == "Player")
             {
-                other.GetComponent<Player>().GetDamage();
+                other.GetComponent<Player>().GetDamage(enemyDamage);
             }
             else if(colliderTag == "Enemy")
             {
-                other.GetComponent<Enemy>().GetDamage();
+                other.GetComponent<Enemy>().GetDamage(playerDamage);
                 
             }
         }

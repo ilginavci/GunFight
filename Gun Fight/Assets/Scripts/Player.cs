@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPoint,caseSpawnpoint;
     private Animator animator;
+    public int playerDamage;
     [SerializeField]
     private float health;
     public float animMultiplier;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetFloat("Multiplier",animMultiplier);
+        bullet.GetComponent<BulletManager>().playerDamage = playerDamage;
     }
 
     void Update()
@@ -74,9 +76,9 @@ public class Player : MonoBehaviour
     {
         beingHeld = false;
     }
-    public void GetDamage()
+    public void GetDamage(int enemyDamage)
     {
-        health -= 20;
+        health -= enemyDamage;
         if(health <= 0)
         {
             Destroy(gameObject);
@@ -84,7 +86,7 @@ public class Player : MonoBehaviour
     }
 
     private void BulletCase()
-    {
+    {   
         GameObject instentiated =  Instantiate(bullet, caseSpawnpoint.transform.position, Quaternion.identity) as GameObject;
         Destroy(instentiated.GetComponent<BulletManager>());
         Destroy(instentiated.GetComponent<TrailRenderer>());

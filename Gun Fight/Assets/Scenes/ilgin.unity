@@ -1106,7 +1106,7 @@ MonoBehaviour:
   maxposY: 2.8
   minposY: -2.8
   cooldown: 0
-  cooldownMax: 0.4
+  cooldownMax: 0.2
   bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
   spawnPoint: {fileID: 1559161787}
   caseSpawnpoint: {fileID: 447343463}
@@ -1141,7 +1141,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 23107091824f43e41a9ce24a746fac89, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a1464e4e0c628b84786ea89448c063f9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1.1

@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float cooldown, cooldownMax;
     public Transform spawnPoint;
     private Animator animator;
+    public int enemyDamage;
     [SerializeField]
     private float health;
     public float animMultiplier;
@@ -63,10 +64,10 @@ public class Enemy : MonoBehaviour
             directionUp = false;
         }
     }
-    public void GetDamage()
+    public void GetDamage(int playerDamage)
     {
         audioSource.Play();
-        health -= 20;
+        health -= playerDamage;
         if (health <= 0)
         {
             Destroy(gameObject);
