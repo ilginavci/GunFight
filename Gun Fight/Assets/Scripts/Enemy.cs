@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public float maxposY, minposY;
     public GameObject enemyBullet;
     public float cooldown, cooldownMax;
-    public Transform spawnPoint;
+    public Transform spawnPoint,caseSpawnpoint;
     private Animator animator;
     [SerializeField]
     private float health;
@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
         {
             cooldown = cooldownMax;
             Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
+            BulletCase();
             animator.SetTrigger("Shoot");
         }
         else
@@ -90,4 +91,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void BulletCase()
+    {
+        GameObject instentiated = Instantiate(enemyBullet, caseSpawnpoint.transform.position, Quaternion.identity) as GameObject;
+        Destroy(instentiated.GetComponent<BulletManager>());
+        Destroy(instentiated.GetComponent<TrailRenderer>());
+        instentiated.GetComponent<Rigidbody2D>().gravityScale = 1;
+        Destroy(instentiated, 3);
+    }
 }

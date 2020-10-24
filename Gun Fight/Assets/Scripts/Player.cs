@@ -10,12 +10,13 @@ public class Player : MonoBehaviour
     private bool beingHeld = false;   
     public float cooldown,cooldownMax;    
     public GameObject bullet;
-    public Transform spawnPoint;
+    public Transform spawnPoint,caseSpawnpoint;
     private Animator animator;
     [SerializeField]
     private float health;
     public float animMultiplier;
     private AudioSource audioSource;
+
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
                 Instantiate(bullet,spawnPoint.transform.position,Quaternion.identity);
                 animator.SetTrigger("Shoot"); //SHOOTING ANIM
                 audioSource.Play(); //SHOOTING SOUND
+                BulletCase();// BulletCase falling
             }
             else
             {
@@ -81,4 +83,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void BulletCase()
+    {
+        GameObject instentiated =  Instantiate(bullet, caseSpawnpoint.transform.position, Quaternion.identity) as GameObject;
+        Destroy(instentiated.GetComponent<BulletManager>());
+        Destroy(instentiated.GetComponent<TrailRenderer>());
+        instentiated.GetComponent<Rigidbody2D>().gravityScale = 1;
+        Destroy(instentiated, 3);
+    }
 }
