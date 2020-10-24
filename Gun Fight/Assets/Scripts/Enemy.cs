@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public float animMultiplier;
     private AudioSource audioSource;
 
+
     void Start()
     { //Random Movement
         InvokeRepeating("RandomMovement", 0, 5);
@@ -64,6 +65,7 @@ public class Enemy : MonoBehaviour
     }
     public void GetDamage()
     {
+        audioSource.Play();
         health -= 20;
         if (health <= 0)
         {
