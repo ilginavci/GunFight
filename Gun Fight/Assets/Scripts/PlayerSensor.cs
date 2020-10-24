@@ -10,12 +10,6 @@ public class PlayerSensor : MonoBehaviour
             GetComponentInParent<Enemy>().EnemyFire();
         }
     }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {     //EnemyShotTrigger
-            GetComponentInParent<Enemy>().RandomMovement();
-        }
-    }
+
 
 }

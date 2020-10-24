@@ -1141,7 +1141,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cbd8538cf8718d1408bcc46d48aca37b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 23107091824f43e41a9ce24a746fac89, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1.1
@@ -1561,7 +1561,6 @@ MonoBehaviour:
   cooldown: 0
   cooldownMax: 0.4
   spawnPoint: {fileID: 3004946127053996127}
-  caseSpawnpoint: {fileID: 1835335589}
   health: 100
   animMultiplier: 3
 --- !u!82 &3004946126773784325
