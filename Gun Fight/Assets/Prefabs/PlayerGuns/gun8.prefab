@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3004946126867519560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.77, y: 0.31, z: 0}
+  m_LocalPosition: {x: 4.17, y: 0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3004946126960531223}
@@ -301,7 +301,7 @@ MonoBehaviour:
   caseSpawnpoint: {fileID: 4454474422509116081}
   playerDamage: 50
   health: 100
-  animMultiplier: 5
+  animMultiplier: 1
 --- !u!95 &3004946126960531224
 Animator:
   serializedVersion: 3
@@ -441,7 +441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5116964317449202383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0.14, y: 1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3004946126960531223}

@@ -47,8 +47,7 @@ public class Enemy : MonoBehaviour
                 directionUp = !directionUp;
             }
         } 
-       
-       
+      
     }
     public void RandomMovement()
     {

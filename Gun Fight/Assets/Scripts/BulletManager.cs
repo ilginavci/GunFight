@@ -25,7 +25,7 @@ public class BulletManager : MonoBehaviour
           // Player bullet goes right, Enemy bullet goes left
         if (gameObject.CompareTag("PlayerBullet"))
         {
-            bulletRB.AddForce(Vector2.right * power);
+            bulletRB.AddForce(transform.right * power);
             BulletDeviation();
         }
         else
@@ -35,6 +35,7 @@ public class BulletManager : MonoBehaviour
         }
             Destroy(gameObject, 3); 
         
+    
     }
     void BulletDeviation()
     {
