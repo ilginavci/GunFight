@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour
     }
     public void RandomMovement()
     {
-        print("Random");
         var randomNumber = (Random.value > 0.5f); // it gives a bool , 1 or 0
         if (randomNumber)
         {
