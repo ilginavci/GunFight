@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class ScreenManager : MonoBehaviour
 {
-
-    private Color nextColor;
+    Color[] nextColor;
     Camera cm;
+    public Color zero,one,two,tree,four,five,six,seven,eight,nine;
+    int randomColor=0;
+
+    
 
     void Start()
     {
+      
         cm = GetComponent<Camera>();
-        nextColor = cm.backgroundColor;
+        nextColor =  new Color[] { zero, one, two, tree, four, five, six, seven, eight, nine };
     }
     void FixedUpdate()
     {  //Background color
-        cm.backgroundColor = Color.Lerp(cm.backgroundColor, nextColor, 0.01f);
+        cm.backgroundColor = Color.Lerp(cm.backgroundColor, nextColor[randomColor], 0.01f);
     }
     public void ChangeScreen()
-    {  //random color generator
-        nextColor = new Color(
-       Random.Range(0f, 1f),
-       Random.Range(0f, 1f),
-       Random.Range(0f, 1f)
-    );
-
+    {  // Random Bg color
+       int tempRandom = Random.Range(0,9);  
+        if(randomColor != tempRandom)
+        {
+            randomColor = tempRandom;
+        }
+        else
+        {
+            ChangeScreen();
+        }
     }
 }
 
