@@ -32,4 +32,8 @@ public class StageManager : MonoBehaviour
         
 
     }
+    public void RandomCard()
+    {
+
+    }
 }
