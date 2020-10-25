@@ -5,9 +5,10 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     public GameObject[] guns;
-    public Transform enemySpawnPoint;
+    public Transform enemySpawnPoint, enemySpawnPointUp;
     int randomNumber;
     int stage = 0;
+    bool spawnPointBool=true;
     private void Start()
     {
         RandomGun();
@@ -21,14 +22,23 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-           
+           randomNumber = Random.Range(0 , 7);
         }
            EnemyInstantiate();
 
     }
     void EnemyInstantiate()
     {
-        Instantiate( guns[randomNumber], enemySpawnPoint.position, Quaternion.identity );
+        if (spawnPointBool)
+        {
+            Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
+            spawnPointBool = !spawnPointBool;
+        }
+        else
+        {
+            Instantiate(guns[randomNumber], enemySpawnPointUp.position , Quaternion.identity);
+            spawnPointBool = !spawnPointBool;
+        }
     }
     
     public void NextEnemy()
