@@ -21,7 +21,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-
+           
         }
            EnemyInstantiate();
 
