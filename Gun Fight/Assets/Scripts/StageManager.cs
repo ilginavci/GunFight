@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    GameObject[] guns;
+    public GameObject[] guns;
     public Transform enemySpawnPoint;
-    public GameObject gun1, gun2, gun3, gun4, gun5, gun6, gun7, gun8, gun9;
+    // public GameObject gun1, gun2, gun3, gun4, gun5, gun6, gun7, gun8;
     // Start is called before the first frame update
     void Start()
     {
-        guns = new GameObject[] { gun1, gun2, gun3, gun4, gun5, gun6, gun7, gun8, gun9 };
+     //   guns = new GameObject[] { gun1, gun2, gun3, gun4, gun5, gun6, gun7, gun8, gun9 };
     }
 
     // Update is called once per frame
