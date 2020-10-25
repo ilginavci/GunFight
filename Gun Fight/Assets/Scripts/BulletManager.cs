@@ -53,8 +53,17 @@ public class BulletManager : MonoBehaviour
             Destroy(gameObject);
             if (colliderTag == "Player")
             {
-                other.GetComponent<Player>().GetDamage(enemyDamage);
+                if(other.GetComponent<Player>() != null)
+                {
+                    other.GetComponent<Player>().GetDamage(enemyDamage);
+                }
+                if(other.GetComponent<ShotGun>() != null)
+                {
+                    other.GetComponent<ShotGun>().GetDamage(enemyDamage);
+
+                }
             }
+
             else if(colliderTag == "Enemy")
             {
                 other.GetComponent<Enemy>().GetDamage(playerDamage);
