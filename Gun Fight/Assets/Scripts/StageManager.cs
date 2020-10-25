@@ -6,20 +6,30 @@ public class StageManager : MonoBehaviour
 {
     public GameObject[] guns;
     public Transform enemySpawnPoint;
-    // public GameObject gun1, gun2, gun3, gun4, gun5, gun6, gun7, gun8;
-    // Start is called before the first frame update
-    void Start()
+    int randomNumber;
+    int stage = 1;
+    private void Start()
     {
-     //   guns = new GameObject[] { gun1, gun2, gun3, gun4, gun5, gun6, gun7, gun8, gun9 };
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        RandomGun();
+        EnemyInstantiate();
     }
     void RandomGun ()
     {
-        int randomNumber = Random.Range(0, 2);
+        if (stage == 1)
+        {
+            randomNumber = Random.Range(0, 3);
+        }
+    }
+    void EnemyInstantiate()
+    {
+        Instantiate( guns[randomNumber], enemySpawnPoint.position, Quaternion.identity );
+    }
+    
+    public void NextEnemy()
+    {
+        Invoke("RandomGun", 3);
+        Invoke("EnemyInstantiate",3);
+        
+
     }
 }

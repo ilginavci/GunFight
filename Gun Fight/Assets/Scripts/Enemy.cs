@@ -68,10 +68,13 @@ public class Enemy : MonoBehaviour
         health -= playerDamage;
         if (health <= 0)
         {
+
             Destroy(gameObject);
+            GameObject.Find("StageManager").GetComponent<StageManager>().NextEnemy();
             //Changing Screen
             GameObject.Find("ScreenLine").GetComponent<Animator>().SetTrigger("ScreenAnim"); //ScreenLineAnimation
             GameObject.Find("Main Camera").GetComponent<ScreenManager>().ChangeScreen();// Camera background color
+            
         }
 
     }
@@ -88,6 +91,7 @@ public class Enemy : MonoBehaviour
             cooldown -= Time.deltaTime;
         }
     }
+
 
     
 }
