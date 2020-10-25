@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 3004946126960531222, guid: 4289bef16aa1d554c8d9a3a7fb69af59,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3004946126960531223, guid: 4289bef16aa1d554c8d9a3a7fb69af59,
         type: 3}
@@ -512,6 +512,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1267547591}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &897244057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897244058}
+  m_Layer: 0
+  m_Name: StageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897244058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897244057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4935493, y: -0.14351949, z: -2.2471411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &903382899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -818,7 +848,7 @@ PrefabInstance:
     - target: {fileID: 1352623138879804209, guid: c9bab99a827d2aa4aa3f696059733e1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9bab99a827d2aa4aa3f696059733e1c, type: 3}
