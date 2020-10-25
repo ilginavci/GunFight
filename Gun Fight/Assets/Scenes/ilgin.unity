@@ -993,6 +993,7 @@ GameObject:
   - component: {fileID: 1260732940}
   - component: {fileID: 1260732939}
   - component: {fileID: 1260732942}
+  - component: {fileID: 1260732943}
   m_Layer: 5
   m_Name: Button_Center
   m_TagString: Untagged
@@ -1062,8 +1063,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 897244059}
-        m_MethodName: RandomCard
+      - m_Target: {fileID: 1260732943}
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1130,6 +1131,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1260732943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260732937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0a933cc91dfee44bdd86164d824327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonCenter: {fileID: 1260732939}
+  buttonLeft: {fileID: 825704260}
+  buttonRight: {fileID: 1147221475}
+  damageSprite: {fileID: -7415955986125602904, guid: 1e48d3ddc00c1884eaf10bf3cc69328b,
+    type: 3}
+  shotgunSprite: {fileID: 8963368785945452489, guid: 1e48d3ddc00c1884eaf10bf3cc69328b,
+    type: 3}
+  healthSprite: {fileID: -1145144668836272637, guid: 1e48d3ddc00c1884eaf10bf3cc69328b,
+    type: 3}
+  originalSprite: {fileID: 7024648501981196136, guid: 1e48d3ddc00c1884eaf10bf3cc69328b,
+    type: 3}
 --- !u!1001 &1267547591
 PrefabInstance:
   m_ObjectHideFlags: 0
