@@ -15,9 +15,21 @@ public class StageManager : MonoBehaviour
        
     }
     void RandomGun ()
-    {
-        if (stage < 17)
+    {   
+        if(stage%3 == 0 )
         {
+            //boss kodu
+            if (stage < 21)
+            {
+                randomNumber = Random.Range(0 + stage / 4, 3 + stage / 4); //boss
+            }
+            else
+            {
+                randomNumber = Random.Range(0, 7); //boss 
+            }
+        }
+        else if (stage < 21)
+        {  //normal enemy kodu
             randomNumber = Random.Range(0 + stage / 4, 3 + stage / 4);
         }
         else
@@ -25,7 +37,6 @@ public class StageManager : MonoBehaviour
            randomNumber = Random.Range(0 , 7);
         }
            EnemyInstantiate();
-
     }
     void EnemyInstantiate()
     {
