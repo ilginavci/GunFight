@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bf7ba3d10d4484d9550c9b137b8842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 250
+  power: 400
   colliderTag: Enemy
   muzzleSprite: {fileID: 21300000, guid: 5b650e619f18cf249a169b068985faf9, type: 3}
   flashframetime: 3

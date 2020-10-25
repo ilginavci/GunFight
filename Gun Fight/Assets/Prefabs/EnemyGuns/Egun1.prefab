@@ -231,7 +231,7 @@ MonoBehaviour:
   cooldown: 0
   cooldownMax: 0.4
   spawnPoint: {fileID: 1352623139557956718}
-  enemyDamage: 0
+  enemyDamage: 20
   health: 100
   animMultiplier: 3
 --- !u!82 &8401698053690899981

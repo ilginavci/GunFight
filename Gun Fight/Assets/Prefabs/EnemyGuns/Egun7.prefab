@@ -244,9 +244,9 @@ MonoBehaviour:
   enemyBullet: {fileID: 6932520010096124733, guid: 6556e164053b54549ba1b18b1ed75af1,
     type: 3}
   cooldown: 0
-  cooldownMax: 0.4
+  cooldownMax: 1.3
   spawnPoint: {fileID: 3004946126867519561}
-  enemyDamage: 0
+  enemyDamage: 80
   health: 100
   animMultiplier: 3
 --- !u!82 &-4736467184230507628

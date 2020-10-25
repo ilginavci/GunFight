@@ -13,11 +13,12 @@ public class Enemy : MonoBehaviour
     public Transform spawnPoint;
     private Animator animator;
     public int enemyDamage;
+    bool isDead = false;
     [SerializeField]
     private float health;
     public float animMultiplier;
     private AudioSource audioSource;
-
+    
 
     void Start()
     { //Random Movement
@@ -26,8 +27,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         animator.SetFloat("Multiplier", animMultiplier);
-        
-
+        enemyBullet.GetComponent<BulletManager>().enemyDamage= enemyDamage;
     }
     void FixedUpdate()
     {   //Enemy Movement
@@ -64,17 +64,20 @@ public class Enemy : MonoBehaviour
     }
     public void GetDamage(int playerDamage)
     {
-        audioSource.Play();
+    //    audioSource.Play();
         health -= playerDamage;
         if (health <= 0)
-        {
-
+        {   
             Destroy(gameObject);
-            GameObject.Find("StageManager").GetComponent<StageManager>().NextEnemy();
-            //Changing Screen
-            GameObject.Find("ScreenLine").GetComponent<Animator>().SetTrigger("ScreenAnim"); //ScreenLineAnimation
-            GameObject.Find("Main Camera").GetComponent<ScreenManager>().ChangeScreen();// Camera background color
-            
+            if (!isDead)
+            {
+                GameObject.Find("StageManager").GetComponent<StageManager>().NextEnemy();    
+               //Changing Screen
+                GameObject.Find("ScreenLine").GetComponent<Animator>().SetTrigger("ScreenAnim"); //ScreenLineAnimation
+                GameObject.Find("Main Camera").GetComponent<ScreenManager>().ChangeScreen();// Camera background color  
+                isDead = true;
+            }
+          
         }
 
     }

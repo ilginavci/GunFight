@@ -7,18 +7,24 @@ public class StageManager : MonoBehaviour
     public GameObject[] guns;
     public Transform enemySpawnPoint;
     int randomNumber;
-    int stage = 1;
+    int stage = 0;
     private void Start()
     {
         RandomGun();
-        EnemyInstantiate();
+       
     }
     void RandomGun ()
     {
-        if (stage == 1)
+        if (stage < 17)
         {
-            randomNumber = Random.Range(0, 3);
+            randomNumber = Random.Range(0 + stage / 4, 3 + stage / 4);
         }
+        else
+        {
+
+        }
+           EnemyInstantiate();
+
     }
     void EnemyInstantiate()
     {
@@ -27,9 +33,8 @@ public class StageManager : MonoBehaviour
     
     public void NextEnemy()
     {
-        Invoke("RandomGun", 3);
-        Invoke("EnemyInstantiate",3);
-        
+        stage++;
+        Invoke("RandomGun", 2f);
 
     }
     public void RandomCard()
