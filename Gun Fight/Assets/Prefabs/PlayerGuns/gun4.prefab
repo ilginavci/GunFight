@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1352623138879804208
 Transform:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   caseSpawnpoint: {fileID: 1352623140594015410}
   playerDamage: 30
   health: 100
-  animMultiplier: 5
+  animMultiplier: 1
 --- !u!95 &1352623138879804223
 Animator:
   serializedVersion: 3
@@ -363,7 +363,7 @@ Animator:
   m_GameObject: {fileID: 1352623138879804209}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea8dd83c4c1b43440956ef0c06fe9573, type: 2}
+  m_Controller: {fileID: 9100000, guid: d28ae6d9c66269147b3274418775f6f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
