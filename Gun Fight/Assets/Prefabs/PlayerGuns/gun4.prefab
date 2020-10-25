@@ -352,7 +352,7 @@ MonoBehaviour:
   caseSpawnpoint: {fileID: 1352623140594015410}
   playerDamage: 30
   health: 100
-  animMultiplier: 5
+  animMultiplier: 1
 --- !u!95 &1352623138879804223
 Animator:
   serializedVersion: 3
@@ -363,7 +363,7 @@ Animator:
   m_GameObject: {fileID: 1352623138879804209}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea8dd83c4c1b43440956ef0c06fe9573, type: 2}
+  m_Controller: {fileID: 9100000, guid: d28ae6d9c66269147b3274418775f6f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -384,7 +384,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cd9a8a1c205a206429fb22ce7802cb7b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
