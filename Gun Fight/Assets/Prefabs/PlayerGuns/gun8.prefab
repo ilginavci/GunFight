@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3004946126960531226}
   - component: {fileID: 3004946126960531221}
   - component: {fileID: 3004946126960531220}
-  - component: {fileID: 3004946126960531227}
+  - component: {fileID: 6405710182672101843}
   - component: {fileID: 3004946126960531224}
   - component: {fileID: 3925208204479766829}
   m_Layer: 0
@@ -279,7 +279,7 @@ PolygonCollider2D:
       - {x: 3.1999998, y: 0.71}
       - {x: 3.1, y: 0.71}
       - {x: 3.11, y: 0.71999997}
---- !u!114 &3004946126960531227
+--- !u!114 &6405710182672101843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3004946126960531222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c75b27886c2ef31478a1c1140a9bba20, type: 3}
+  m_Script: {fileID: 11500000, guid: 317120a5119dd1546921e5f170f7f983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectPosX: 0
@@ -297,11 +297,14 @@ MonoBehaviour:
   cooldown: 0
   cooldownMax: 1
   bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
+  bullet2: {fileID: 6932520010096124733, guid: eedf03829f5ad5c4cae11fb9e9b8d15c, type: 3}
+  bullet3: {fileID: 6932520010096124733, guid: f120c87b86847b44fb366c33a085cfce, type: 3}
   spawnPoint: {fileID: 3004946126867519561}
   caseSpawnpoint: {fileID: 4454474422509116081}
   playerDamage: 50
   health: 100
   animMultiplier: 1
+  power: 250
 --- !u!95 &3004946126960531224
 Animator:
   serializedVersion: 3
@@ -441,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5116964317449202383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14, y: 1.05, z: 0}
+  m_LocalPosition: {x: -0.45, y: 1.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3004946126960531223}

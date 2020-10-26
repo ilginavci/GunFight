@@ -19,8 +19,9 @@ public class Card : MonoBehaviour
         rightAnim = GameObject.Find("Button_Right").GetComponent<Animator>();
         functions = new string[] {"Damage","Shotgun","Health"};
 
+
         if(gameObject.name == ("Button_Center"))
-        {
+        {   
             activeButton = buttonCenter;
             dactiveButton1 = buttonLeft;
             dactiveButton2 = buttonRight;
