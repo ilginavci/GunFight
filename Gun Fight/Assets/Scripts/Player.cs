@@ -75,11 +75,8 @@ public class Player : MonoBehaviour
         health -= enemyDamage;
         if(health <= 0)
         {
-            stageManager.canvasDeath.SetActive(true);
-            stageManager.canvasDeath.transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("HighScore").ToString(); //HIGHSCORE TEXT
-            stageManager.canvasDeath.transform.GetChild(1).GetComponent<Text>().text = stageManager.stage.ToString();//SCORE TEXT
-            Time.timeScale = 0;
             Destroy(gameObject);
+            stageManager.PlayAgain();
         }
     }
 

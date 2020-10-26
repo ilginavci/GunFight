@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class StageManager : MonoBehaviour
 {
     public GameObject[] guns;
@@ -11,13 +11,34 @@ public class StageManager : MonoBehaviour
     int randomNumber;
     public int stage = 1;
     bool spawnPointBool=true;
-    public GameObject canvasGame, canvasDeath;
     public float furyCooldown, furyCooldownMax;
     public Animator furyAnim;
+    public Image healthbar;
+    public Image[] stageImages;
+    public Text stageText;
     private void Start()
     {
         RandomGun();
-       
+        stage = PlayerPrefs.GetInt("Stage");
+        stageText.text = stage.ToString();
+        stageImages[0].gameObject.SetActive(false); stageImages[1].gameObject.SetActive(false); stageImages[2].gameObject.SetActive(false); stageImages[3].gameObject.SetActive(false);
+        if (stage % 4 == 0 && stage != 0)
+        {
+            stageImages[3].gameObject.SetActive(true); stageImages[2].gameObject.SetActive(true); stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
+        }
+        if (stage % 4 == 1 && stage != 0)
+        {
+            stageImages[2].gameObject.SetActive(true); stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
+        }
+        if (stage % 4 == 2 && stage != 0)
+        {
+           stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
+        }
+        if (stage % 4 == 1 && stage != 0)
+        {
+            stageImages[0].gameObject.SetActive(true);
+        }
+        
     }
     private void Update()
     {
@@ -35,6 +56,7 @@ public class StageManager : MonoBehaviour
         if(stage%4 == 0 && stage != 0)
         {
             //boss kodu
+            stageImages[3].gameObject.SetActive(true);
             if (stage < 21)
             {
                 randomNumber = Random.Range(0 + (stage -1)/ 4, 3 + stage / 4); //boss
@@ -53,6 +75,22 @@ public class StageManager : MonoBehaviour
            randomNumber = Random.Range(0 , 7);
         }
            EnemyInstantiate();
+        if(stage%4 ==1 && stage != 0)
+        {
+            stageImages[0].gameObject.SetActive(true);
+        }
+        if (stage % 4 == 1 && stage != 0 && stage > 4)
+        {
+            stageImages[1].gameObject.SetActive(false); stageImages[2].gameObject.SetActive(false); stageImages[3].gameObject.SetActive(false);
+        }
+        if (stage % 4 == 2 && stage != 0)
+        {
+            stageImages[1].gameObject.SetActive(true);
+        }
+        if (stage % 4 == 3 && stage != 0)
+        {
+            stageImages[2].gameObject.SetActive(true);
+        }
     }
     void EnemyInstantiate()
     {
@@ -60,12 +98,14 @@ public class StageManager : MonoBehaviour
         {
             var tempGameobject= Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
             tempGameobject.transform.SetParent(enemySpawnPoint.transform);
+            healthbar.fillAmount = 1;
             spawnPointBool = !spawnPointBool;
         }
         else
         {
             var tempGameobject= Instantiate(guns[randomNumber], enemySpawnPointUp.position , Quaternion.identity);
             tempGameobject.transform.SetParent(enemySpawnPoint.transform);
+            healthbar.fillAmount = 1;
             spawnPointBool = !spawnPointBool;
         }
     }
@@ -73,17 +113,14 @@ public class StageManager : MonoBehaviour
     public void NextEnemy()
     {
         stage++;
-        if (stage > PlayerPrefs.GetInt("HighScore"))
-        {
-            PlayerPrefs.SetInt("HighScore", stage);
-        }
+        PlayerPrefs.SetInt("Stage", stage);
+        stageText.text = PlayerPrefs.GetInt("Stage").ToString();
         Invoke("RandomGun", 2f);
 
     }
    public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
     }
     private void FuryCooldownReset()
     {

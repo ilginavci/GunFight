@@ -14,8 +14,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     public float enemyDamage;
     bool isDead = false;
-    [SerializeField]
-    private float health;
+    public float health;
     public float animMultiplier;
     private AudioSource audioSource;
     
@@ -65,7 +64,9 @@ public class Enemy : MonoBehaviour
     public void GetDamage(float playerDamage)
     {
     //    audioSource.Play();
+        
         health -= playerDamage;
+        GameObject.Find("StageManager").GetComponent<StageManager>().healthbar.fillAmount = health / 100;
         if (health <= 0)
         {   
             Destroy(gameObject);
