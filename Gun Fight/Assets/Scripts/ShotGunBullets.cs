@@ -11,7 +11,7 @@ public class ShotGunBullets : MonoBehaviour
     public Sprite muzzleSprite;
     private SpriteRenderer spriteRend;
     public int flashframetime;
-    public int playerDamage, enemyDamage;
+    public float playerDamage, enemyDamage;
 
     void Start()
     {

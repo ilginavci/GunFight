@@ -77,7 +77,7 @@ public class ShotGun : MonoBehaviour
     {
         beingHeld = false;
     }
-    public void GetDamage(int enemyDamage)
+    public void GetDamage(float enemyDamage)
     {
         health -= enemyDamage;
         if (health <= 0)

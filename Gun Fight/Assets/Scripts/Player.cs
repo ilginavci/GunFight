@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPoint,caseSpawnpoint;
     private Animator animator;
-    public int playerDamage;
+    public float playerDamage;
     public float health;
     public float animMultiplier;
     private AudioSource audioSource;
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public void GetDamage(int enemyDamage)
+    public void GetDamage(float enemyDamage)
     {
         health -= enemyDamage;
         if(health <= 0)

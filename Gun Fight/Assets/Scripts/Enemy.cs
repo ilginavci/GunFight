@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float cooldown, cooldownMax;
     public Transform spawnPoint;
     private Animator animator;
-    public int enemyDamage;
+    public float enemyDamage;
     bool isDead = false;
     [SerializeField]
     private float health;
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
             directionUp = false;
         }
     }
-    public void GetDamage(int playerDamage)
+    public void GetDamage(float playerDamage)
     {
     //    audioSource.Play();
         health -= playerDamage;

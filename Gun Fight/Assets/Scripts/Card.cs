@@ -68,12 +68,12 @@ public class Card : MonoBehaviour
             {
                 if (players[i].GetComponent<Player>() != null)
                 {
-                    players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 10;
+                    players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 15;
 
                 }
                 else if (players[i].GetComponent<ShotGun>() != null)
                 {
-                    players[i].GetComponent<ShotGun>().playerDamage = players[i].GetComponent<ShotGun>().playerDamage + players[i].GetComponent<ShotGun>().playerDamage / 10;
+                    players[i].GetComponent<ShotGun>().playerDamage = players[i].GetComponent<ShotGun>().playerDamage + players[i].GetComponent<ShotGun>().playerDamage / 15;
 
                 }
             }
