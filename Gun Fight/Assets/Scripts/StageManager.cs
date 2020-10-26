@@ -8,7 +8,7 @@ public class StageManager : MonoBehaviour
     public GameObject[] players;
     public Transform enemySpawnPoint, enemySpawnPointUp;
     int randomNumber;
-    int stage = 0;
+    int stage = 1;
     bool spawnPointBool=true;
 
     private void Start()
@@ -17,13 +17,14 @@ public class StageManager : MonoBehaviour
        
     }
     void RandomGun ()
-    {   
-        if(stage%3 == 0 )
+    {
+        print(stage);
+        if(stage%4 == 0 && stage != 0)
         {
             //boss kodu
             if (stage < 21)
             {
-                randomNumber = Random.Range(0 + stage / 4, 3 + stage / 4); //boss
+                randomNumber = Random.Range(0 + (stage -1)/ 4, 3 + stage / 4); //boss
             }
             else
             {
@@ -32,7 +33,7 @@ public class StageManager : MonoBehaviour
         }
         else if (stage < 21)
         {  //normal enemy kodu
-            randomNumber = Random.Range(0 + stage / 4, 3 + stage / 4);
+            randomNumber = Random.Range(0 + (stage -1) / 4, 3 + stage / 4);
         }
         else
         {

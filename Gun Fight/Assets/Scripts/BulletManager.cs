@@ -11,7 +11,7 @@ public class BulletManager : MonoBehaviour
     public Sprite muzzleSprite;
     private SpriteRenderer spriteRend;
     public int flashframetime;
-    public int playerDamage, enemyDamage;
+    [HideInInspector]public int playerDamage, enemyDamage;
 
     void Start()
     {
