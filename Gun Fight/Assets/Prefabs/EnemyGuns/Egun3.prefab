@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adfc6bee1a18d34faaa6614ae42c1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
+  enemySpeed: 2.5
   directionUp: 0
   maxposY: 2.8
   minposY: -2.8
