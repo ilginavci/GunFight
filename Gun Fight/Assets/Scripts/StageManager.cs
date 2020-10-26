@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class StageManager : MonoBehaviour
     public GameObject[] players;
     public Transform enemySpawnPoint, enemySpawnPointUp;
     int randomNumber;
-    int stage = 1;
+    public int stage = 1;
     bool spawnPointBool=true;
+    public GameObject canvasGame, canvasDeath;
 
     private void Start()
     {
@@ -60,11 +62,16 @@ public class StageManager : MonoBehaviour
     public void NextEnemy()
     {
         stage++;
+        if (stage > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", stage);
+        }
         Invoke("RandomGun", 2f);
 
     }
-    public void RandomCard()
+   public void PlayAgain()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 }

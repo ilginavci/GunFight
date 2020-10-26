@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour
     public float health;
     public float animMultiplier;
     private AudioSource audioSource;
-
+    private StageManager stageManager;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetFloat("Multiplier",animMultiplier);
         bullet.GetComponent<BulletManager>().playerDamage = playerDamage;
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
     }
 
     void Update()
@@ -73,6 +75,10 @@ public class Player : MonoBehaviour
         health -= enemyDamage;
         if(health <= 0)
         {
+            stageManager.canvasDeath.SetActive(true);
+            stageManager.canvasDeath.transform.GetChild(0).GetComponent<Text>().text = PlayerPrefs.GetInt("HighScore").ToString(); //HIGHSCORE TEXT
+            stageManager.canvasDeath.transform.GetChild(1).GetComponent<Text>().text = stageManager.stage.ToString();//SCORE TEXT
+            Time.timeScale = 0;
             Destroy(gameObject);
         }
     }
