@@ -13,8 +13,7 @@ public class Player : MonoBehaviour
     public Transform spawnPoint,caseSpawnpoint;
     private Animator animator;
     public int playerDamage;
-    [SerializeField]
-    private float health;
+    public float health;
     public float animMultiplier;
     private AudioSource audioSource;
 

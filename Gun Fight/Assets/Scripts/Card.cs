@@ -70,17 +70,31 @@ public class Card : MonoBehaviour
     {
         activeButton.image.sprite = damageSprite;
         Debug.Log("damage verildi");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 10;
+        }
     }
     private void Shotgun()
     {
         activeButton.image.sprite = shotgunSprite;
         Debug.Log("shotgun verildi");
-
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[7].SetActive(true);
     }
     private void Health()
     {
         activeButton.image.sprite = healthSprite;
-        Debug.Log("health verildi");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<Player>().health = 100;
+        }
     }
 
     private void Gun0()
