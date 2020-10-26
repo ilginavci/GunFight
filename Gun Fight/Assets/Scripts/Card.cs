@@ -18,15 +18,7 @@ public class Card : MonoBehaviour
     private void Start()
     {
         stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
-        players = new GameObject[stageManager.players.Length];
-        for (int i = 0; i < stageManager.players.Length; i++)
-        {
-            players[i] = stageManager.players[i];
-        }
-
-
-
-
+        players = stageManager.players;
     }
 
     public void Click()
@@ -74,7 +66,16 @@ public class Card : MonoBehaviour
         {
             if (players[i] != null)
             {
-                players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 10;
+                if (players[i].GetComponent<Player>() != null)
+                {
+                    players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 10;
+
+                }
+                else if (players[i].GetComponent<ShotGun>() != null)
+                {
+                    players[i].GetComponent<ShotGun>().playerDamage = players[i].GetComponent<ShotGun>().playerDamage + players[i].GetComponent<ShotGun>().playerDamage / 10;
+
+                }
             }
         }
     }
@@ -98,7 +99,16 @@ public class Card : MonoBehaviour
         {
             if(players[i] != null)
             {
-                players[i].GetComponent<Player>().health = 100;
+                if (players[i].GetComponent<Player>() != null)
+                {
+                    players[i].GetComponent<Player>().health = 100;
+                    
+                }
+                else if (players[i].GetComponent<ShotGun>() != null)
+                    {
+                        players[i].GetComponent<ShotGun>().health = 100;
+
+                    }
             }
             
         }
