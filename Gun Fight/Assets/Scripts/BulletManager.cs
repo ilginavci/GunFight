@@ -12,6 +12,7 @@ public class BulletManager : MonoBehaviour
     private SpriteRenderer spriteRend;
     public int flashframetime;
     [HideInInspector]public float playerDamage, enemyDamage;
+    
 
     void Start()
     {
@@ -53,7 +54,8 @@ public class BulletManager : MonoBehaviour
             Destroy(gameObject);
             if (colliderTag == "Player")
             {
-                if(other.GetComponent<Player>() != null)
+                GameObject.Find("StageManager").GetComponent<StageManager>().furyCooldown = GameObject.Find("StageManager").GetComponent<StageManager>().furyCooldownMax;
+                if (other.GetComponent<Player>() != null)
                 {
                     other.GetComponent<Player>().GetDamage(enemyDamage);
                 }

@@ -897,6 +897,9 @@ MonoBehaviour:
   stage: 1
   canvasGame: {fileID: 1237650299}
   canvasDeath: {fileID: 1822735794}
+  furyCooldown: 15
+  furyCooldownMax: 15
+  furyAnim: {fileID: 519420033}
 --- !u!1 &938152957
 GameObject:
   m_ObjectHideFlags: 0

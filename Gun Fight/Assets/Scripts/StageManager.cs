@@ -12,11 +12,22 @@ public class StageManager : MonoBehaviour
     public int stage = 1;
     bool spawnPointBool=true;
     public GameObject canvasGame, canvasDeath;
-
+    public float furyCooldown, furyCooldownMax;
+    public Animator furyAnim;
     private void Start()
     {
         RandomGun();
        
+    }
+    private void Update()
+    {
+        furyCooldown = furyCooldown - Time.deltaTime;
+        if(furyCooldown <= 0)
+        {
+            furyAnim.SetTrigger("Fury");
+            furyCooldown = furyCooldownMax;
+            Invoke("FuryCooldownReset", furyCooldownMax - 1);
+        }
     }
     void RandomGun ()
     {
@@ -73,5 +84,9 @@ public class StageManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
+    }
+    private void FuryCooldownReset()
+    {
+        furyCooldown = furyCooldownMax;
     }
 }
