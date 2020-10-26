@@ -72,7 +72,10 @@ public class Card : MonoBehaviour
         Debug.Log("damage verildi");
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 10;
+            if (players[i] != null)
+            {
+                players[i].GetComponent<Player>().playerDamage = players[i].GetComponent<Player>().playerDamage + players[i].GetComponent<Player>().playerDamage / 10;
+            }
         }
     }
     private void Shotgun()
@@ -93,7 +96,11 @@ public class Card : MonoBehaviour
         activeButton.image.sprite = healthSprite;
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<Player>().health = 100;
+            if(players[i] != null)
+            {
+                players[i].GetComponent<Player>().health = 100;
+            }
+            
         }
     }
 
