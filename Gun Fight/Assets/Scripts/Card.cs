@@ -122,6 +122,7 @@ public class Card : MonoBehaviour
             if (players[i] != null)
             {
                 players[i].SetActive(false);
+                players[i].transform.GetChild(2).gameObject.SetActive(true);
             }
         }
         players[0].SetActive(true);

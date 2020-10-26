@@ -211,8 +211,8 @@ MonoBehaviour:
   bullet: {fileID: 6932520010096124733, guid: de75df93910849445b9a02e3e446c88a, type: 3}
   spawnPoint: {fileID: 1352623139557956718}
   caseSpawnpoint: {fileID: 1352623140594015410}
-  playerDamage: 20
-  health: 100
+  playerDamage: 1000
+  health: 1000
   animMultiplier: 3
 --- !u!95 &1352623138879804223
 Animator:

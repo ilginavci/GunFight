@@ -814,6 +814,40 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1177414414}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &586978867
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &671539713 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3004946126960531222, guid: a899111799ac50346a3493ed89ffe91c,
@@ -1588,6 +1622,11 @@ PrefabInstance:
       propertyPath: playerDamage
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 1352623138879804221, guid: acdbc9af91f343d47a10f82abcb2b966,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 586978867}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acdbc9af91f343d47a10f82abcb2b966, type: 3}
 --- !u!1 &1397350588 stripped
