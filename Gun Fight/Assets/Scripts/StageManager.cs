@@ -42,12 +42,14 @@ public class StageManager : MonoBehaviour
     {
         if (spawnPointBool)
         {
-            Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
+            var tempGameobject= Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
+            tempGameobject.transform.SetParent(enemySpawnPoint.transform);
             spawnPointBool = !spawnPointBool;
         }
         else
         {
-            Instantiate(guns[randomNumber], enemySpawnPointUp.position , Quaternion.identity);
+            var tempGameobject= Instantiate(guns[randomNumber], enemySpawnPointUp.position , Quaternion.identity);
+            tempGameobject.transform.SetParent(enemySpawnPoint.transform);
             spawnPointBool = !spawnPointBool;
         }
     }

@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     
     public float objectPosX, maxposY, minposY;   
-    private float startPosX, startPosY;   
+    private float startPosX, startPosY;
     private bool beingHeld = false;   
     public float cooldown,cooldownMax;    
     public GameObject bullet;
@@ -29,17 +29,31 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-      
-        if(beingHeld == true)
+        if (Input.GetMouseButtonDown(0))
         {
-            
-                Vector3 mousepos;
+            Vector3 mouseposa;
+            mouseposa = Input.mousePosition;
+            mouseposa = Camera.main.ScreenToWorldPoint(mouseposa);
+           
+
+            startPosY = mouseposa.y - this.transform.localPosition.y;
+
+            beingHeld = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            beingHeld = false;
+        }
+
+            if (beingHeld == true)
+        {
+             Vector3 mousepos;
                 mousepos = Input.mousePosition;
                 mousepos = Camera.main.ScreenToWorldPoint(mousepos);
 
-            if (mousepos.y < maxposY && mousepos.y > minposY)
+            if (mousepos.y - startPosY < maxposY && mousepos.y - startPosY > minposY)
             {
-                this.gameObject.transform.localPosition = new Vector3(objectPosX, mousepos.y, 0);
+                this.gameObject.transform.localPosition = new Vector3(objectPosX, mousepos.y - startPosY , 0);
             }
             if (cooldown <= 0)
             {
@@ -54,27 +68,6 @@ public class Player : MonoBehaviour
                 cooldown -= Time.deltaTime;
             }
         }
-    }
-
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousepos;
-            mousepos = Input.mousePosition;
-            mousepos = Camera.main.ScreenToWorldPoint(mousepos);
-
-                startPosY = mousepos.y - this.transform.localPosition.y;
-            
-            beingHeld = true;
-        }
-
-        
-    }
-
-    private void OnMouseUp()
-    {
-        beingHeld = false;
     }
     public void GetDamage(int enemyDamage)
     {
