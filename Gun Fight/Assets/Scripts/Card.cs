@@ -9,15 +9,32 @@ public class Card : MonoBehaviour
     public Button buttonCenter, buttonLeft, buttonRight;
     private Animator centerAnim, leftAnim, rightAnim;
     public Sprite damageSprite, shotgunSprite, healthSprite,originalSprite;
+    public Sprite[] gunSprites;
     private Button activeButton,dactiveButton1,dactiveButton2;
     private string[] functions;
+    private GameObject[] players;
+    private StageManager stageManager;
+
+    private void Start()
+    {
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
+        players = new GameObject[stageManager.players.Length];
+        for (int i = 0; i < stageManager.players.Length; i++)
+        {
+            players[i] = stageManager.players[i];
+        }
+
+
+
+
+    }
 
     public void Click()
     {
         centerAnim = GameObject.Find("Button_Center").GetComponent<Animator>();
         leftAnim = GameObject.Find("Button_Left").GetComponent<Animator>();
         rightAnim = GameObject.Find("Button_Right").GetComponent<Animator>();
-        functions = new string[] {"Damage","Shotgun","Health"};
+        functions = new string[] {"Damage","Shotgun","Health","Gun0", "Gun1","Gun2","Gun3","Gun4", "Gun5"};
 
 
         if(gameObject.name == ("Button_Center"))
@@ -64,5 +81,78 @@ public class Card : MonoBehaviour
     {
         activeButton.image.sprite = healthSprite;
         Debug.Log("health verildi");
+    }
+
+    private void Gun0()
+    {
+        activeButton.image.sprite = gunSprites[0];
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[0].SetActive(true);
+    }
+    private void Gun1()
+    {
+        activeButton.image.sprite = gunSprites[1];
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[1].SetActive(true);
+    }
+    private void Gun2()
+    {
+        activeButton.image.sprite = gunSprites[2];
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[2].SetActive(true);
+    }
+    private void Gun3()
+    {
+        activeButton.image.sprite = gunSprites[3];
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[3].SetActive(true);
+    }
+    private void Gun4()
+    {
+        activeButton.image.sprite = gunSprites[4];
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[4].SetActive(true);
+    }
+    private void Gun5()
+    {
+        activeButton.image.sprite = gunSprites[5];
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].SetActive(false);
+            }
+        }
+        players[5].SetActive(true);
     }
 }

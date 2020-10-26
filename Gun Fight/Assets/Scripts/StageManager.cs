@@ -5,10 +5,12 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     public GameObject[] guns;
+    public GameObject[] players;
     public Transform enemySpawnPoint, enemySpawnPointUp;
     int randomNumber;
     int stage = 0;
     bool spawnPointBool=true;
+
     private void Start()
     {
         RandomGun();
