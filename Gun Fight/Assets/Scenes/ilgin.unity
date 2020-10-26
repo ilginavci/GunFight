@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -788,6 +789,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &519420033
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04c972941ffb3cc4f8d94952d5889ec2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &569765231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3004946126960531222, guid: 11ed15bda63cf3b46af8bce7aaaa9a65,
@@ -874,6 +894,7 @@ MonoBehaviour:
   - {fileID: 1938594738}
   enemySpawnPoint: {fileID: 1135529924}
   enemySpawnPointUp: {fileID: 1444231807}
+  stage: 1
   canvasGame: {fileID: 1237650299}
   canvasDeath: {fileID: 1822735794}
 --- !u!1 &938152957
