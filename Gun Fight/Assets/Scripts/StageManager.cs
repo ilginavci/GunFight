@@ -70,22 +70,23 @@ public class StageManager : MonoBehaviour
             stageImages[3].gameObject.SetActive(true);
             if (stage < 21)
             {//8.9.10.11 boss
-                randomNumber = Random.Range(7 + (stage - 1) / 4, 7 + (stage - 5) / 4); //boss
+                randomNumber = 7 + (stage - 5) / 4;
+                //randomNumber = Random.Range(7 + (stage - 5) / 4, 7 + (stage - 5) / 4); //boss
             }
             else
             {
-                randomNumber = Random.Range(7, 10); //boss 
+              randomNumber = Random.Range(7, 10); //boss 
             }
             EnemyInstantiate();
         }
         else if (stage < 21)
         {  //normal enemy kodu
-            randomNumber = Random.Range((stage -1) / 4, 3 + stage / 4);
+            randomNumber = Random.Range((stage -1) / 4, 2 + (stage -1)/ 4);
             EnemyInstantiate();
         }
         else
         {
-           randomNumber = Random.Range(0 , 7);
+           randomNumber = Random.Range(0 , 6);
             EnemyInstantiate();
         }
            

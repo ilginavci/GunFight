@@ -51,9 +51,9 @@ public class ShotGun : MonoBehaviour
             mousepos = Input.mousePosition;
             mousepos = Camera.main.ScreenToWorldPoint(mousepos);
 
-            if (mousepos.y < maxposY && mousepos.y > minposY)
+            if (mousepos.y - startPosY < maxposY && mousepos.y - startPosY > minposY)
             {
-                this.gameObject.transform.localPosition = new Vector3(objectPosX, mousepos.y, 0);
+                this.gameObject.transform.localPosition = new Vector3(objectPosX, mousepos.y -startPosY, 0);
             }
             if (cooldown <= 0)
             {
