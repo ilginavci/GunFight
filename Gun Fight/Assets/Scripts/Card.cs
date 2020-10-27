@@ -49,6 +49,7 @@ public class Card : MonoBehaviour
         activeButton.animator.SetTrigger("FlipCard");
         Invoke(functions[Random.Range(0,functions.Length)], 1f);
         Invoke("OriginalSprite", 2.8f);
+        Invoke("ContinueGame", 3);
         dactiveButton1.animator.SetTrigger("PushCards");
         dactiveButton2.animator.SetTrigger("PushCards");
     }
@@ -122,7 +123,6 @@ public class Card : MonoBehaviour
             if (players[i] != null)
             {
                 players[i].SetActive(false);
-                players[i].transform.GetChild(2).gameObject.SetActive(true);
             }
         }
         players[0].SetActive(true);
@@ -186,5 +186,11 @@ public class Card : MonoBehaviour
             }
         }
         players[5].SetActive(true);
+    }
+
+    private void ContinueGame()
+    {
+        stageManager.canRespawn = true;
+        stageManager.RandomGun();
     }
 }

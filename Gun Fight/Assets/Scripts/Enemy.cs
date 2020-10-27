@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float animMultiplier;
     private AudioSource audioSource;
-    
+    private GameObject[] cards;
 
     void Start()
     { //Random Movement
@@ -67,15 +67,18 @@ public class Enemy : MonoBehaviour
         health -= playerDamage;
         GameObject.Find("StageManager").GetComponent<StageManager>().healthbar.fillAmount = health / 100;
         if (health <= 0)
-        { 
+        {
+            CheckBossDead();
             Destroy(gameObject);
             if (!isDead)
             {
+                
                 GameObject.Find("StageManager").GetComponent<StageManager>().NextEnemy();    
                //Changing Screen
                 GameObject.Find("ScreenLine").GetComponent<Animator>().SetTrigger("ScreenAnim"); //ScreenLineAnimation
                 GameObject.Find("Main Camera").GetComponent<ScreenManager>().ChangeScreen();// Camera background color  
                 isDead = true;
+               
             }
           
         }
@@ -102,5 +105,16 @@ public class Enemy : MonoBehaviour
     }
 
 
-    
+    private void CheckBossDead()
+    {
+        cards = GameObject.FindGameObjectsWithTag("Card");
+        if (gameObject.GetComponent<Boss>() != null)
+        {
+            GameObject.Find("StageManager").GetComponent<StageManager>().canRespawn = false;
+            Debug.Log("BOSS OLDU");
+            cards[0].GetComponent<Animator>().SetTrigger("PullCards");
+            cards[1].GetComponent<Animator>().SetTrigger("PullCards");
+            cards[2].GetComponent<Animator>().SetTrigger("PullCards");
+        }
+    }
 }

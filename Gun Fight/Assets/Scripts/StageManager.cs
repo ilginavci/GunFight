@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     public Image healthbar;
     public Image[] stageImages;
     public Text stageText;
+    public bool canRespawn = true;
     private void Start()
     {
         RandomGun();
@@ -26,7 +27,7 @@ public class StageManager : MonoBehaviour
         {
             stageImages[3].gameObject.SetActive(true); stageImages[2].gameObject.SetActive(true); stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
         }
-        if (stage % 4 == 1 && stage != 0)
+        if (stage % 4 == 3 && stage != 0)
         {
             stageImages[2].gameObject.SetActive(true); stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
         }
@@ -60,7 +61,7 @@ public class StageManager : MonoBehaviour
             Invoke("FuryCooldownReset", furyCooldownMax - 1);
         }
     }
-    void RandomGun ()
+    public void RandomGun ()
     {
         print(stage);
         if(stage%4 == 0 && stage != 0)
@@ -69,11 +70,11 @@ public class StageManager : MonoBehaviour
             stageImages[3].gameObject.SetActive(true);
             if (stage < 21)
             {//8.9.10.11 boss
-                randomNumber = Random.Range(7 + (stage - 1) / 4, 8 + (stage - 1) / 4); //boss
+                randomNumber = Random.Range(7 + (stage - 1) / 4, 7 + (stage - 5) / 4); //boss
             }
             else
             {
-                randomNumber = Random.Range(8, 11); //boss 
+                randomNumber = Random.Range(7, 10); //boss 
             }
             EnemyInstantiate();
         }
@@ -107,20 +108,24 @@ public class StageManager : MonoBehaviour
     }
     void EnemyInstantiate()
     {
-        if (spawnPointBool)
+        if (canRespawn)
         {
-            var tempGameobject= Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
-            tempGameobject.transform.SetParent(enemySpawnPoint.transform);
-            healthbar.fillAmount = 1;
-            spawnPointBool = !spawnPointBool;
+            if (spawnPointBool)
+            {
+                var tempGameobject = Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
+                tempGameobject.transform.SetParent(enemySpawnPoint.transform);
+                healthbar.fillAmount = 1;
+                spawnPointBool = !spawnPointBool;
+            }
+            else
+            {
+                var tempGameobject = Instantiate(guns[randomNumber], enemySpawnPointUp.position, Quaternion.identity);
+                tempGameobject.transform.SetParent(enemySpawnPoint.transform);
+                healthbar.fillAmount = 1;
+                spawnPointBool = !spawnPointBool;
+            }
         }
-        else
-        {
-            var tempGameobject= Instantiate(guns[randomNumber], enemySpawnPointUp.position , Quaternion.identity);
-            tempGameobject.transform.SetParent(enemySpawnPoint.transform);
-            healthbar.fillAmount = 1;
-            spawnPointBool = !spawnPointBool;
-        }
+        
     }
     
     public void NextEnemy()

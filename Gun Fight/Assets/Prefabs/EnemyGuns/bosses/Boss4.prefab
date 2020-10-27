@@ -406,7 +406,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 6932520010096124733, guid: 6556e164053b54549ba1b18b1ed75af1,
     type: 3}
   cooldown: 0
-  cooldownMax: 0.09
+  cooldownMax: 0.12
   spawnPoint: {fileID: 3004946126867519561}
   enemyDamage: 20
   health: 200
@@ -423,11 +423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7399f7a97193e48498fa687df1777b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 3162121319769185868, guid: 7e164b9394ba5514892cc1f9d30fdb0e,
-    type: 3}
-  shotingSprite: {fileID: 7070995037689566333, guid: 7e164b9394ba5514892cc1f9d30fdb0e,
-    type: 3}
-  isShoot: 1
 --- !u!1001 &915445708452683110
 PrefabInstance:
   m_ObjectHideFlags: 0
