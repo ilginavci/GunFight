@@ -21,6 +21,21 @@ public class StageManager : MonoBehaviour
     {
         RandomGun();
         stage = PlayerPrefs.GetInt("Stage");
+        print(stage);
+        if (stage % 4 == 0)
+        {
+            stage -= 3;
+        }
+        else if (stage % 4 == 3)
+        {
+            stage -= 2;
+
+        }
+        else if (stage % 4 == 2)
+        {
+            stage -= 1;
+
+        }
         stageText.text = stage.ToString();
         stageImages[0].gameObject.SetActive(false);
         stageImages[1].gameObject.SetActive(false);
@@ -95,7 +110,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-           randomNumber = Random.Range(0 , 6);
+           randomNumber = Random.Range(1 , 6);
             EnemyInstantiate();
         }
            
