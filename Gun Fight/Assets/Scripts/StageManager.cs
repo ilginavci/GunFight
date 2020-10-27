@@ -46,7 +46,17 @@ public class StageManager : MonoBehaviour
         if(furyCooldown <= 0)
         {
             furyAnim.SetTrigger("Fury");
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (players[i] != null)
+                {
+                    players[i].GetComponent<_2dxFX_Lightning>().enabled = true;
+                    Invoke("FuryEnd", 10);
+
+                }
+            }
             furyCooldown = furyCooldownMax;
+            
             Invoke("FuryCooldownReset", furyCooldownMax - 1);
         }
     }
@@ -58,23 +68,26 @@ public class StageManager : MonoBehaviour
             //boss kodu
             stageImages[3].gameObject.SetActive(true);
             if (stage < 21)
-            {
-                randomNumber = Random.Range(0 + (stage -1)/ 4, 3 + stage / 4); //boss
+            {//8.9.10.11 boss
+                randomNumber = Random.Range(7 + (stage - 1) / 4, 8 + (stage - 1) / 4); //boss
             }
             else
             {
-                randomNumber = Random.Range(0, 7); //boss 
+                randomNumber = Random.Range(8, 11); //boss 
             }
+            EnemyInstantiate();
         }
         else if (stage < 21)
         {  //normal enemy kodu
-            randomNumber = Random.Range(0 + (stage -1) / 4, 3 + stage / 4);
+            randomNumber = Random.Range((stage -1) / 4, 3 + stage / 4);
+            EnemyInstantiate();
         }
         else
         {
            randomNumber = Random.Range(0 , 7);
+            EnemyInstantiate();
         }
-           EnemyInstantiate();
+           
         if(stage%4 ==1 && stage != 0)
         {
             stageImages[0].gameObject.SetActive(true);
@@ -125,5 +138,18 @@ public class StageManager : MonoBehaviour
     private void FuryCooldownReset()
     {
         furyCooldown = furyCooldownMax;
+    }
+
+    void FuryEnd()
+    {
+ 
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] != null)
+            {
+                players[i].GetComponent<_2dxFX_Lightning>().enabled = false;
+            }
+        }
+
     }
 }

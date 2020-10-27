@@ -6,10 +6,12 @@ public class PlayerSensor : MonoBehaviour
 {
     void OnTriggerStay2D(Collider2D other)
     {   if (other.gameObject.CompareTag("Player"))
-        {     //EnemyShotTrigger
+        {  //   EnemyShotTrigger
             GetComponentInParent<Enemy>().EnemyFire();
         }
+        
     }
+
 
 
 }

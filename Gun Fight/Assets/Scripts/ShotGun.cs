@@ -28,6 +28,21 @@ public class ShotGun : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouseposa;
+            mouseposa = Input.mousePosition;
+            mouseposa = Camera.main.ScreenToWorldPoint(mouseposa);
+
+
+            startPosY = mouseposa.y - this.transform.localPosition.y;
+
+            beingHeld = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            beingHeld = false;
+        }
 
         if (beingHeld == true)
         {
@@ -57,26 +72,9 @@ public class ShotGun : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousepos;
-            mousepos = Input.mousePosition;
-            mousepos = Camera.main.ScreenToWorldPoint(mousepos);
+  
 
-            startPosY = mousepos.y - this.transform.localPosition.y;
-
-            beingHeld = true;
-        }
-
-
-    }
-
-    private void OnMouseUp()
-    {
-        beingHeld = false;
-    }
+   
     public void GetDamage(float enemyDamage)
     {
         health -= enemyDamage;

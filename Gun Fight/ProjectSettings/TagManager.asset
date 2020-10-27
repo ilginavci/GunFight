@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - Enemy
   - Sensor
+  - Boss4
   layers:
   - Default
   - TransparentFX

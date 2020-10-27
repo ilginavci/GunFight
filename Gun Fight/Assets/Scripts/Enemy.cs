@@ -63,12 +63,11 @@ public class Enemy : MonoBehaviour
     }
     public void GetDamage(float playerDamage)
     {
-    //    audioSource.Play();
-        
+        //    audioSource.Play();
         health -= playerDamage;
         GameObject.Find("StageManager").GetComponent<StageManager>().healthbar.fillAmount = health / 100;
         if (health <= 0)
-        {   
+        { 
             Destroy(gameObject);
             if (!isDead)
             {
@@ -88,6 +87,12 @@ public class Enemy : MonoBehaviour
         {
             cooldown = cooldownMax;
             Instantiate(enemyBullet, spawnPoint.transform.position, Quaternion.identity);
+
+            if ( audioSource != null)
+            {
+                audioSource.Play();
+            }
+
             animator.SetTrigger("Shoot");
         }
         else
