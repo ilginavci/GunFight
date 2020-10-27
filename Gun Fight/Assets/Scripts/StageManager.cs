@@ -22,18 +22,27 @@ public class StageManager : MonoBehaviour
         RandomGun();
         stage = PlayerPrefs.GetInt("Stage");
         stageText.text = stage.ToString();
-        stageImages[0].gameObject.SetActive(false); stageImages[1].gameObject.SetActive(false); stageImages[2].gameObject.SetActive(false); stageImages[3].gameObject.SetActive(false);
+        stageImages[0].gameObject.SetActive(false);
+        stageImages[1].gameObject.SetActive(false);
+        stageImages[2].gameObject.SetActive(false);
+        stageImages[3].gameObject.SetActive(false);
         if (stage % 4 == 0 && stage != 0)
         {
-            stageImages[3].gameObject.SetActive(true); stageImages[2].gameObject.SetActive(true); stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
+            stageImages[3].gameObject.SetActive(true);
+            stageImages[2].gameObject.SetActive(true);
+            stageImages[1].gameObject.SetActive(true);
+            stageImages[0].gameObject.SetActive(true);
         }
         if (stage % 4 == 3 && stage != 0)
         {
-            stageImages[2].gameObject.SetActive(true); stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
+            stageImages[2].gameObject.SetActive(true);
+            stageImages[1].gameObject.SetActive(true);
+            stageImages[0].gameObject.SetActive(true);
         }
         if (stage % 4 == 2 && stage != 0)
         {
-           stageImages[1].gameObject.SetActive(true); stageImages[0].gameObject.SetActive(true);
+           stageImages[1].gameObject.SetActive(true);
+            stageImages[0].gameObject.SetActive(true);
         }
         if (stage % 4 == 1 && stage != 0)
         {
@@ -96,7 +105,9 @@ public class StageManager : MonoBehaviour
         }
         if (stage % 4 == 1 && stage != 0 && stage > 4)
         {
-            stageImages[1].gameObject.SetActive(false); stageImages[2].gameObject.SetActive(false); stageImages[3].gameObject.SetActive(false);
+            stageImages[1].gameObject.SetActive(false);
+            stageImages[2].gameObject.SetActive(false);
+            stageImages[3].gameObject.SetActive(false);
         }
         if (stage % 4 == 2 && stage != 0)
         {
