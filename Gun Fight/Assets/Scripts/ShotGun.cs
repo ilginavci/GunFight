@@ -17,13 +17,16 @@ public class ShotGun : MonoBehaviour
     public float animMultiplier;
     private AudioSource audioSource;
     public float power;
-
+    private StageManager stageManager;
     private void Start()
     {
+        PlayerPrefs.SetInt("GunNumber", transform.GetSiblingIndex());
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetFloat("Multiplier", animMultiplier);
         bullet.GetComponent<BulletManager>().playerDamage = playerDamage;
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
+
     }
 
     void Update()
@@ -80,6 +83,24 @@ public class ShotGun : MonoBehaviour
         health -= enemyDamage;
         if (health <= 0)
         {
+            int stage = PlayerPrefs.GetInt("Stage");
+            print(stage);
+            if (stage % 4 == 0)
+            {
+                stage -= 3;
+            }
+            else if (stage % 4 == 3)
+            {
+                stage -= 2;
+
+            }
+            else if (stage % 4 == 2)
+            {
+                stage -= 1;
+
+            }
+            PlayerPrefs.SetInt("Stage", stage);
+            stageManager.playerGuns();
             Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

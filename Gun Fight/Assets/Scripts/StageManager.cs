@@ -7,6 +7,7 @@ public class StageManager : MonoBehaviour
 {
     public GameObject[] guns;
     public GameObject[] players;
+    public GameObject[] playerIndex;
     public Transform enemySpawnPoint, enemySpawnPointUp;
     int randomNumber;
     public int stage = 1;
@@ -19,10 +20,15 @@ public class StageManager : MonoBehaviour
     public bool canRespawn = true;
     private void Start()
     {
+        
         RandomGun();
         stage = PlayerPrefs.GetInt("Stage");
-        print(stage);
-        if (stage % 4 == 0)
+        playerGuns();
+        if (stage < 4)
+        {
+            stage = 1;
+        }
+        else if(stage % 4 == 0)
         {
             stage -= 3;
         }
@@ -87,7 +93,6 @@ public class StageManager : MonoBehaviour
     }
     public void RandomGun ()
     {
-        print(stage);
         if(stage%4 == 0 && stage != 0)
         {
             //boss kodu
@@ -95,22 +100,23 @@ public class StageManager : MonoBehaviour
             if (stage < 21)
             {//8.9.10.11 boss
                 randomNumber = 7 + (stage - 5) / 4;
-                //randomNumber = Random.Range(7 + (stage - 5) / 4, 7 + (stage - 5) / 4); //boss
             }
             else
             {
-              randomNumber = Random.Range(7, 10); //boss 
+              randomNumber = Random.Range(7, 11); //boss 
             }
             EnemyInstantiate();
         }
-        else if (stage < 21)
+
+        else if (stage < 8)
         {  //normal enemy kodu
-            randomNumber = Random.Range((stage -1) / 4, 2 + (stage -1)/ 4);
+            randomNumber = Random.Range(0 , 3);
             EnemyInstantiate();
         }
+              
         else
         {
-           randomNumber = Random.Range(1 , 6);
+           randomNumber = Random.Range(0 , 7);
             EnemyInstantiate();
         }
            
@@ -138,11 +144,13 @@ public class StageManager : MonoBehaviour
         if (canRespawn)
         {
             if (spawnPointBool)
-            {
+            { 
+               
                 var tempGameobject = Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
                 tempGameobject.transform.SetParent(enemySpawnPoint.transform);
                 healthbar.fillAmount = 1;
                 spawnPointBool = !spawnPointBool;
+                
             }
             else
             {
@@ -154,7 +162,10 @@ public class StageManager : MonoBehaviour
         }
         
     }
-    
+    public void playerGuns()
+    {
+        playerIndex[PlayerPrefs.GetInt("GunNumber")].SetActive(true);
+    }
     public void NextEnemy()
     {
         stage++;
@@ -166,6 +177,7 @@ public class StageManager : MonoBehaviour
    public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
     private void FuryCooldownReset()
     {

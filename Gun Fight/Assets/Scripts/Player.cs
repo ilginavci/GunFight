@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("GunNumber", transform.GetSiblingIndex());
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetFloat("Multiplier",animMultiplier);
@@ -72,7 +73,7 @@ public class Player : MonoBehaviour
     }
     public void GetDamage(float enemyDamage)
     {
-        health -= enemyDamage;
+           health -= enemyDamage;
         if(health <= 0)
         {
             int stage = PlayerPrefs.GetInt("Stage");
@@ -92,8 +93,9 @@ public class Player : MonoBehaviour
 
             }
             PlayerPrefs.SetInt("Stage", stage);
-            Destroy(gameObject);
-            stageManager.PlayAgain();
+            stageManager.playerGuns();
+             Destroy(gameObject);
+              stageManager.PlayAgain();
         }
     }
 
