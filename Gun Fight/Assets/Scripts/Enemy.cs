@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             if (!isDead)
             {
-                
+                TinySauce.OnGameFinished(PlayerPrefs.GetInt("Stage"));
                 GameObject.Find("StageManager").GetComponent<StageManager>().NextEnemy();    
                //Changing Screen
                 GameObject.Find("ScreenLine").GetComponent<Animator>().SetTrigger("ScreenAnim"); //ScreenLineAnimation

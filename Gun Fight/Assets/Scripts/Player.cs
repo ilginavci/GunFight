@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
 
             }
             PlayerPrefs.SetInt("Stage", stage);
+            TinySauce.OnGameFinished(PlayerPrefs.GetInt("Stage").ToString(),false,0);
             stageManager.playerGuns();
              Destroy(gameObject);
               stageManager.PlayAgain();

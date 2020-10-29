@@ -147,6 +147,7 @@ public class StageManager : MonoBehaviour
             { 
                
                 var tempGameobject = Instantiate(guns[randomNumber], enemySpawnPoint.position, Quaternion.identity);
+                TinySauce.OnGameStarted(stage.ToString());
                 tempGameobject.transform.SetParent(enemySpawnPoint.transform);
                 healthbar.fillAmount = 1;
                 spawnPointBool = !spawnPointBool;
@@ -156,6 +157,7 @@ public class StageManager : MonoBehaviour
             {
                 var tempGameobject = Instantiate(guns[randomNumber], enemySpawnPointUp.position, Quaternion.identity);
                 tempGameobject.transform.SetParent(enemySpawnPoint.transform);
+                TinySauce.OnGameStarted(stage.ToString());
                 healthbar.fillAmount = 1;
                 spawnPointBool = !spawnPointBool;
             }
